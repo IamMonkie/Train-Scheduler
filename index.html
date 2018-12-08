@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+
+    <!-- scripts -->
+    <!-- JQUERY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+    <!-- Moment JS -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Javascript -->
+    <script src="assets/javascript/main.js"></script>
+
+    <!-- css -->
+    <!-- <link rel="stylesheet" href="assets/css/reset.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!--
+      --------------------------------------------------------------------------------------------------------------
+    -->
+
+    <title>Train Scheduler</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4" id="junbotronH1">Train Schedule</h1>
+          <p class="lead" id="jumbotronH2">THE NEXT TRAIN WILL ARRIVE IN:</p>
+          <div class="logoContainer"></div>
+        </div>
+      </div>
+      <!--
+        --------------------------------------------------------------------------------------------------------------
+      -->
+
+      <!-- Train form -->
+      <div class="formContainer">
+        <form>
+          <div class="form-group">
+            <label for="name">TRAIN NAME</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tName-input"
+              aria-describedby=""
+              placeholder="ENTER TRAIN NAME"
+            />
+
+            <label for="name">TRAIN DESTINATION</label>
+            <input
+              type="text"
+              class="form-control"
+              id="tDestination-input"
+              aria-describedby=""
+              placeholder="ENTER DESTINATION"
+            />
+
+            <label for="name">TRAIN FREQUENCY</label>
+            <input
+              type="number"
+              class="form-control"
+              id="tFrequency-input"
+              aria-describedby=""
+              placeholder="ENTER FREQUENCY"
+            />
+
+            <label for="name">TRAIN ARRIVAL TIME</label>
+            <input
+              type="time"
+              class="form-control"
+              id="tArrival-input"
+              aria-describedby=""
+              placeholder="ENTER ARRIVAL TIME"
+            />
+          </div>
+          <!-- submit button -->
+          <div id="btnContainer">
+            <button type="submit" class="btn btn-primary btn-dark">
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Train Schedule -->
+      <div class="tableContainer">
+        <table class="table table-striped table-dark" id="schedule-display">
+          <thead>
+            <tr>
+              Schedule
+              <th class="tableHeader" scope="col">Train Name</th>
+              <th class="tableHeader" scope="col">Destination</th>
+              <th class="tableHeader" scope="col">Frequency</th>
+              <th class="tableHeader" scope="col">Next Arrival</th>
+              <th class="tableHeader" scope="col">Minutes Away</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <th scope="row">Trenton Express</th>
+              <td>Trenton</td>
+              <td>25</td>
+              <td>05:35 PM</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <th scope="row">Oregon Trail</th>
+              <td>Salem, Oregon</td>
+              <td>3600</td>
+              <td>01:39 PM</td>
+              <td>1154</td>
+            </tr>
+            <tr>
+              <th scope="row">Midnight Carriage</th>
+              <td>Philadelphia</td>
+              <td>15</td>
+              <td>05:35 PM</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--
+        --------------------------------------------------------------------------------------------------------------
+      -->
+      <!-- Add New Train Form -->
+    </div>
+  </body>
+</html>

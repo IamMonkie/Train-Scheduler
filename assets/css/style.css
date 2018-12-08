@@ -1,0 +1,68 @@
+@font-face {
+  src: url(../css/fonts/PennStation.ttf);
+  font-family: pennStation;
+}
+
+body {
+  /* background: url(../Images/starsBG.jpg); */
+}
+
+.container {
+  /* width: 80%; */
+  margin: auto;
+  /* background: #32383e; */
+  background: rgb(126, 126, 126);
+  color: rgb(72, 255, 0);
+  font-family: pennStation;
+  font-size: 1em;
+  /* width: 100%; */
+  padding: 1em;
+  /* border: 0.25em solid rgb(95, 95, 95); */
+  border-radius: 0.25em;
+}
+
+.jumbotron {
+  background: #32383e;
+  border: 0.25em solid rgb(95, 95, 95);
+  border-radius: 0.25em;
+}
+
+.formContainer {
+  border: 0.25em solid rgb(95, 95, 95);
+  border-radius: 0.25em;
+  /* padding: .125em; */
+  background: #32383e;
+}
+
+.form-group {
+  background: rgb(126, 126, 126);
+  border-radius: .25em;
+  padding: .25em;
+  margin-top: 3em;
+}
+
+.btn {
+  background: rgb(95, 95, 95);
+  margin: 1em;
+}
+
+table {
+  font-size: 0.8em;
+  margin: auto;
+  width: 80%;
+  border: 0.25em solid rgb(95, 95, 95);
+  border-radius: 0.25em;
+}
+
+.tableHeader {
+  color: rgb(72, 255, 0);
+}
+
+.logoContainer {
+  content: url("../images/trainLogo.png");
+  width: 15em;
+  float: right;
+  overflow: auto;
+  
+
+}
