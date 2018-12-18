@@ -81,12 +81,17 @@ $(document).ready(function() {
       // Change the HTML to reflect
       $("#junbotronH1").text(sv.name);
       $("#jumbotronH2").text(
-        "THE NEXT TRAIN WILL ARRIVE IN " + sv.arrivalTime + " MINUTES"
+        "THE NEXT TRAIN WILL ARRIVE IN " + sv.arrivalTime + " "
       );
       $("#tName").text(sv.name);
       $("#tDestination").text(sv.destination);
       $("#tFrequency").text(sv.frequency);
       $("#tArrival").text(sv.arrivalTime);
+
+      //add to table
+      $("#trainInfo tr:last").after(
+        "<tr>sv.name</tr><tr>sv.destination</tr><tr>sv.frequency</tr><tr>sv.arrivalTime</tr>"
+      );
 
       // Handle the errors
     },
@@ -139,7 +144,7 @@ $(document).ready(function() {
 // 16 % 7 = 2 (Modulus is the remainder)
 // 7 - 2 = 5 minutes away
 // 5 + 3:16 = 3:21
-
+/*
 // Assumptions
 var tFrequency = sv.frequency;
 
@@ -169,3 +174,4 @@ console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
 // Next Train
 var nextTrain = moment().add(tMinutesTillTrain, "minutes");
 console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
+*/

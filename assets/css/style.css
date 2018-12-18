@@ -36,8 +36,8 @@ body {
 
 .form-group {
   background: rgb(126, 126, 126);
-  border-radius: .25em;
-  padding: .25em;
+  border-radius: 0.25em;
+  padding: 0.25em;
   margin-top: 3em;
 }
 
@@ -58,11 +58,26 @@ table {
   color: rgb(72, 255, 0);
 }
 
-.logoContainer {
-  content: url("../images/trainLogo.png");
-  width: 15em;
-  float: right;
-  overflow: auto;
-  
+/* small screen */
+@media only screen and (max-width: 39em) {
+  .logoContainer {
+    content: url("../images/trainLogo.png");
+    width: 8em;
+    float: right;
+    /* overflow: auto; */
+    position: relative;
+    bottom: 150px;
+  }
+}
 
+/* medium screen */
+@media only screen and (min-width: 40em) {
+  .logoContainer {
+    content: url("../images/trainLogo.png");
+    width: 10em;
+    float: right;
+    overflow: auto;
+    position: relative;
+    bottom: 130px;
+  }
 }
