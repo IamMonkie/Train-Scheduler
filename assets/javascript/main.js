@@ -71,12 +71,32 @@ $(document).ready(function() {
     function(snapshot) {
       // storing the snapshot.val() in a variable for convenience
       let sv = snapshot.val();
-      const freq = sv.frequency;
-      const start = moment("12:00:00");
-      const diff = moment().diff(start, "minutes");
-      let nextArrival = start % diff;
 
-      console.log("sv: " + sv.name + "\n" + "diff: " + diff);
+      // time to arrival calculation
+      const freq = sv.frequency;
+      const start = moment(12);
+      const diff = moment().diff(start, freq);
+      let remainder = start % diff;
+      let minsAway = moment()
+        .add(moment.duration(start))
+        .format("hh:mm");
+
+      console.log(
+        "sv: " +
+          sv.name +
+          "\n" +
+          "start: " +
+          start +
+          "\n" +
+          "diff: " +
+          diff +
+          "\n" +
+          "remainder: " +
+          remainder +
+          "\n" +
+          "minsAway: " +
+          minsAway
+      );
 
       // Change the HTML to reflect
       $("#junbotronH1").text(sv.name);
@@ -87,13 +107,11 @@ $(document).ready(function() {
       //add to table
       var tbody = $("#trainInfo");
       var tr = $("<tr>");
-      // var minsAway = moment(sv.arrivalTime).fromNow(true);
-
       var first = $("<td>").html(sv.name);
       var second = $("<td>").html(sv.destination);
       var third = $("<td>").html(sv.frequency);
       var fourth = $("<td>").html(sv.arrivalTime);
-      var fifth = $("<td>").html(sv.minsAway);
+      var fifth = $("<td>").html(minsAway);
 
       console.log(sv.name);
       tbody.append(
