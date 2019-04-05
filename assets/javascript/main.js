@@ -71,11 +71,11 @@ $(document).ready(function() {
     function(snapshot) {
       // storing the snapshot.val() in a variable for convenience
       let sv = snapshot.val();
-
-      // time to arrival calculation
       const freq = sv.frequency;
-      const start = moment(12);
-      const diff = moment().diff(start, freq);
+      const start = moment()
+        .hours(12)
+        .minutes(0);
+      /*const diff = moment().diff(start, freq);
       let remainder = start % diff;
       let minsAway = moment()
         .add(moment.duration(start))
@@ -96,7 +96,30 @@ $(document).ready(function() {
           "\n" +
           "minsAway: " +
           minsAway
-      );
+      );*/
+
+      // First Time (pushed back 1 year to make sure it comes before current time)
+      console.log(start);
+
+      // Current Time
+      var currentTime = moment();
+      console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
+
+      // Difference between the times
+      var diff = moment().diff(moment(start), "minutes");
+      console.log("DIFFERENCE IN TIME: " + diff);
+
+      // Time apart (remainder)
+      var remainder = diff % freq;
+      console.log(remainder);
+
+      // Minute Until Train
+      var nextArrival = freq - remainder;
+      console.log("MINUTES TILL TRAIN: " + nextArrival);
+
+      // Next Train
+      var nextTrain = moment().add(nextArrival, "minutes");
+      console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
 
       // Change the HTML to reflect
       $("#junbotronH1").text(sv.name);
@@ -107,11 +130,13 @@ $(document).ready(function() {
       //add to table
       var tbody = $("#trainInfo");
       var tr = $("<tr>");
+      // var minsAway = moment(sv.arrivalTime).fromNow(true);
+
       var first = $("<td>").html(sv.name);
       var second = $("<td>").html(sv.destination);
       var third = $("<td>").html(sv.frequency);
       var fourth = $("<td>").html(sv.arrivalTime);
-      var fifth = $("<td>").html(minsAway);
+      var fifth = $("<td>").html(nextArrival);
 
       console.log(sv.name);
       tbody.append(
