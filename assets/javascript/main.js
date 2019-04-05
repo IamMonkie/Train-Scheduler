@@ -71,29 +71,39 @@ $(document).ready(function() {
     function(snapshot) {
       // storing the snapshot.val() in a variable for convenience
       let sv = snapshot.val();
+      const freq = sv.frequency;
+      const start = moment("12:00:00");
+      const diff = moment().diff(start, "minutes");
+      let nextArrival = start % diff;
 
-      // Console.loging the last user's data
-      console.log(sv.name);
-      console.log(sv.email);
-      console.log(sv.age);
-      console.log(sv.comment);
+      console.log("sv: " + sv.name + "\n" + "diff: " + diff);
 
       // Change the HTML to reflect
       $("#junbotronH1").text(sv.name);
       $("#jumbotronH2").text(
-        "THE NEXT TRAIN WILL ARRIVE IN " + sv.arrivalTime + " "
+        "THE NEXT TRAIN WILL ARRIVE AT " + sv.arrivalTime + " "
       );
-      $("#tName").text(sv.name);
-      $("#tDestination").text(sv.destination);
-      $("#tFrequency").text(sv.frequency);
-      $("#tArrival").text(sv.arrivalTime);
 
       //add to table
-      $("#trainInfo tr:last").after(
-        "<tr>sv.name</tr><tr>sv.destination</tr><tr>sv.frequency</tr><tr>sv.arrivalTime</tr>"
-      );
+      var tbody = $("#trainInfo");
+      var tr = $("<tr>");
+      // var minsAway = moment(sv.arrivalTime).fromNow(true);
 
-      // Handle the errors
+      var first = $("<td>").html(sv.name);
+      var second = $("<td>").html(sv.destination);
+      var third = $("<td>").html(sv.frequency);
+      var fourth = $("<td>").html(sv.arrivalTime);
+      var fifth = $("<td>").html(sv.minsAway);
+
+      console.log(sv.name);
+      tbody.append(
+        tr
+          .append(first)
+          .append(second)
+          .append(third)
+          .append(fourth)
+          .append(fifth)
+      );
     },
     function(errorObject) {
       console.log("Errors handled: " + errorObject.code);
